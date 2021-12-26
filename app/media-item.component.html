@@ -3,7 +3,7 @@
   <div>Watched on {{ mediaItem.watchedOn | date: 'shortDate' }}</div>
 </ng-template>
 <div>{{ mediaItem.category }}</div>
-<div>{{ mediaItem.year }}</div>
+<div>{{ mediaItem.release_date | slice:0:4 }}</div>
 <div class="tools">
   <svg
     [mwFavorite]="mediaItem.isFavorite"

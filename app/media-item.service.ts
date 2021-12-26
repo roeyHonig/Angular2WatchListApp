@@ -29,7 +29,7 @@ interface MediaItem {
   original_title: string;
   medium: string;
   category: string;
-  year: number;
+  release_date: string;
   watchedOn: number;
   isFavorite: boolean;
 }
