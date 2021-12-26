@@ -14,18 +14,9 @@ export class MediaItemListComponent {
   constructor(private mediaItemService: MediaItemService) {}
 
   ngOnInit() {
-    this.getMediaItems(this.medium);
+    this.mediaItemService.getMediaChangeEmitter().subscribe(mediaItems => {
+      this.mediaItems = mediaItems;
+    });
   }
 
-  onMediaItemDelete(mediaItem) {
-    this.mediaItemService.delete(mediaItem);
-  }
-
-  getMediaItems(medium) {
-    this.medium = medium;
-    this.mediaItemService.get(medium)
-      .subscribe(mediaItems => {
-        this.mediaItems = mediaItems;
-      });
-  }
 }
