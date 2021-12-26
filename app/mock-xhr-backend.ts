@@ -74,7 +74,7 @@ export class MockXHRBackend implements HttpBackend {
   _mediaItems = [
     {
       id: 1,
-      name: "Firebug",
+      original_title: "Firebug2",
       medium: "Series",
       category: "Science Fiction",
       year: 2010,
@@ -83,7 +83,7 @@ export class MockXHRBackend implements HttpBackend {
     },
     {
       id: 2,
-      name: "The Small Tall",
+      original_title: "The Small Tall",
       medium: "Movies",
       category: "Comedy",
       year: 2015,
@@ -91,7 +91,7 @@ export class MockXHRBackend implements HttpBackend {
       isFavorite: true
     }, {
       id: 3,
-      name: "The Redemption",
+      original_title: "The Redemption",
       medium: "Movies",
       category: "Action",
       year: 2016,
@@ -99,7 +99,7 @@ export class MockXHRBackend implements HttpBackend {
       isFavorite: false
     }, {
       id: 4,
-      name: "Hoopers",
+      original_title: "Hoopers",
       medium: "Series",
       category: "Drama",
       year: null,
@@ -107,7 +107,7 @@ export class MockXHRBackend implements HttpBackend {
       isFavorite: true
     }, {
       id: 5,
-      name: "Happy Joe: Cheery Road",
+      original_title: "Happy Joe: Cheery Road",
       medium: "Movies",
       category: "Action",
       year: 2015,
