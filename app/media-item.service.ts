@@ -26,7 +26,8 @@ interface MediaItemsResponse {
 
 interface MediaItem {
   id: number;
-  original_title: string;
+  original_title: string; 
+  original_name: string; 
   medium: string;
   category: string;
   release_date: string;
