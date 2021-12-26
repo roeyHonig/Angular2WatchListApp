@@ -8,58 +8,6 @@ export class MediaItemService {
   mediaItemsChange: EventEmitter<MediaItem[]> = new EventEmitter();
   constructor(private http: HttpClient) {}
 
-  get(medium) {
-    let getOptions = {
-      params: {
-        api_key: '7d86a696ac456a2d1cf6691522cd3a46',
-        query: 'spider'
-      }
-    };
-    return this.http.get<MediaItemsResponse>('https://api.themoviedb.org/3/search/movie', getOptions)
-      .pipe(
-        map((response: MediaItemsResponse) => {
-          let arrayOfMediaItems = [];
-          response.results.forEach(element => {
-            let theCatagory = "Undefined";
-            this.mediaItemsMovieGenres.forEach(gen => {
-              if (gen.id == element.genre_ids[0]) {
-                theCatagory = gen.name;
-              }
-            });
-            element.mediaItem = {
-              id: 2,
-              original_title: "mock",
-              original_name: null,
-              medium: "mock",
-              category: "mock",
-              release_date: "1901-02-16",
-              watchedOn: null,
-              isFavorite: true,
-              poster_path: null,
-              rating: "Avergae rating"
-            }
-            element.mediaItem.id = element.id;
-            element.mediaItem.original_name = element.original_name;
-            element.mediaItem.original_title = element.original_title;
-            element.mediaItem.release_date = element.release_date;
-            element.mediaItem.watchedOn = element.watchedOn;
-            element.mediaItem.isFavorite = element.isFavorite;
-            element.mediaItem.poster_path = 'https://image.tmdb.org/t/p/original' + element.poster_path;
-            if (element.vote_average > 7) {
-              element.mediaItem.rating = 'Viewers Rating: ' + element.vote_average + ' ' + '😀'; 
-            } else if (element.vote_average > 4) {
-              element.mediaItem.rating = 'Viewers Rating: ' + element.vote_average + ' ' + '😐'; 
-            } else {
-              element.mediaItem.rating = 'Viewers Rating: ' + element.vote_average + ' ' + '🙁'; 
-            }
-            element.mediaItem.category = theCatagory;
-            arrayOfMediaItems.push(element.mediaItem)
-          });
-          return arrayOfMediaItems;
-        })
-      );
-  }
-
   getMovies(name: string, catagoryId: number, year: number) {
     console.log(name);
     let getOptions = {
@@ -116,7 +64,6 @@ export class MediaItemService {
       );
   }
 
-  
   getSeries(name: string, catagoryId: number, year: number) {
     console.log(name);
     let getOptions = {
@@ -200,6 +147,7 @@ export class MediaItemService {
     });
     return idToReturn;
   }
+
   getTvGenreIdBasedOnCatagory(catagory: string) {
     let idToReturn = null;
     this.mediaItemsTvGenres.forEach(element => {
@@ -289,7 +237,6 @@ export class MediaItemService {
     }
   ];
 
-  
   mediaItemsTvGenres = [
     {
       "id": 10759,
@@ -356,7 +303,6 @@ export class MediaItemService {
       "name": "Western"
   }
   ];
-  
 }
 
 interface MediaItemsResponse {
@@ -370,8 +316,6 @@ interface MediaItem {
   medium: string;
   category: string;
   release_date: string;
-  watchedOn: number;
-  isFavorite: boolean;
   rating: string;
   poster_path: string
 }
@@ -383,8 +327,6 @@ interface MediaItemRaw {
   medium: string;
   genre_ids: [number];
   release_date: string;
-  watchedOn: number;
-  isFavorite: boolean;
   poster_path: string;
   vote_average: number;
   mediaItem: MediaItem;
