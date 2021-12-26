@@ -11,7 +11,7 @@ import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
 import { MediaItemService } from './media-item.service';
 import { lookupListToken, lookupLists } from './providers';
-import { MockXHRBackend } from './mock-xhr-backend';
+
 
 @NgModule({
   imports: [
@@ -29,8 +29,8 @@ import { MockXHRBackend } from './mock-xhr-backend';
   ],
   providers: [
     MediaItemService,
-    { provide: lookupListToken, useValue: lookupLists },
-    { provide: HttpXhrBackend, useClass: MockXHRBackend }
+    { provide: lookupListToken, useValue: lookupLists }
+    
   ],
   bootstrap: [
     AppComponent

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, } from 'rxjs/operators';
 
 @Injectable()
 export class MediaItemService {
@@ -8,9 +8,13 @@ export class MediaItemService {
 
   get(medium) {
     let getOptions = {
-      params: { medium }
+      /*params: { medium }*/
+      params: {
+        api_key: '7d86a696ac456a2d1cf6691522cd3a46',
+        query: 'dune'
+      }
     };
-    return this.http.get<MediaItemsResponse>('mediaitems', getOptions)
+    return this.http.get<MediaItemsResponse>('https://api.themoviedb.org/3/search/movie', getOptions)
       .pipe(
         map((response: MediaItemsResponse) => {
           let arrayOfMediaItems = [];
