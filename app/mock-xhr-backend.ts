@@ -22,18 +22,10 @@ export class MockXHRBackend implements HttpBackend {
               mediaItems = this._mediaItems;
             }
             responseOptions = {
-              body: {mediaItems: JSON.parse(JSON.stringify(mediaItems))},
+              body: {results: JSON.parse(JSON.stringify(mediaItems))},
               status: 200
             };
-          } else {
-            let mediaItems;
-            let id = parseInt(request.url.split('/')[1]);
-            mediaItems = this._mediaItems.filter(mediaItem => mediaItem.id === id);
-            responseOptions = {
-              body: JSON.parse(JSON.stringify(mediaItems[0])),
-              status: 200
-            };
-          }
+          } 
           break;
         case 'POST':
           let mediaItem = request.body;

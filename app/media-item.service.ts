@@ -14,7 +14,7 @@ export class MediaItemService {
       .pipe(
         map((response: MediaItemsResponse) => {
           let arrayOfMediaItems = [];
-          response.mediaItems.forEach(element => {
+          response.results.forEach(element => {
             let theCatagory = "Undefined";
             this.mediaItemsMovieGenres.forEach(gen => {
               if (gen.id == element.genre_ids[0]) {
@@ -130,7 +130,7 @@ export class MediaItemService {
 
 
 interface MediaItemsResponse {
-  mediaItems: MediaItemRaw[]
+  results: MediaItemRaw[]
 }
 
 interface MediaItem {
