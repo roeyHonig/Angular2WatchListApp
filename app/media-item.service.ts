@@ -34,7 +34,8 @@ export class MediaItemService {
               release_date: "1901-02-16",
               watchedOn: null,
               isFavorite: true,
-              poster_path: null
+              poster_path: null,
+              rating: "Avergae rating"
             }
             element.mediaItem.id = element.id;
             element.mediaItem.original_name = element.original_name;
@@ -43,6 +44,13 @@ export class MediaItemService {
             element.mediaItem.watchedOn = element.watchedOn;
             element.mediaItem.isFavorite = element.isFavorite;
             element.mediaItem.poster_path = 'https://image.tmdb.org/t/p/original' + element.poster_path;
+            if (element.vote_average > 7) {
+              element.mediaItem.rating = 'Viewers Rating: ' + element.vote_average + ' ' + '😀'; 
+            } else if (element.vote_average > 4) {
+              element.mediaItem.rating = 'Viewers Rating: ' + element.vote_average + ' ' + '😐'; 
+            } else {
+              element.mediaItem.rating = 'Viewers Rating: ' + element.vote_average + ' ' + '🙁'; 
+            }
             element.mediaItem.category = theCatagory;
             arrayOfMediaItems.push(element.mediaItem)
           });
@@ -148,6 +156,7 @@ interface MediaItem {
   release_date: string;
   watchedOn: number;
   isFavorite: boolean;
+  rating: string;
   poster_path: string
 }
 
@@ -160,6 +169,7 @@ interface MediaItemRaw {
   release_date: string;
   watchedOn: number;
   isFavorite: boolean;
-  poster_path: string
+  poster_path: string;
+  vote_average: number;
   mediaItem: MediaItem;
 }
