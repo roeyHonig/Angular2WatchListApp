@@ -77,6 +77,7 @@ export class MockXHRBackend implements HttpBackend {
       original_title: "Firebug2",
       medium: "Series",
       category: "Science Fiction",
+      genre_ids: [53],
       release_date: "1999-10-15",
       watchedOn: 1294166565384,
       isFavorite: false
@@ -86,6 +87,7 @@ export class MockXHRBackend implements HttpBackend {
       original_title: "The Small Tall",
       medium: "Movies",
       category: "Comedy",
+      genre_ids: [18],
       release_date: "2017-02-16",
       watchedOn: null,
       isFavorite: true
@@ -94,6 +96,7 @@ export class MockXHRBackend implements HttpBackend {
       original_title: "The Redemption",
       medium: "Movies",
       category: "Action",
+      genre_ids: [18],
       release_date: "2020-09-10",
       watchedOn: null,
       isFavorite: false
@@ -102,6 +105,7 @@ export class MockXHRBackend implements HttpBackend {
       original_title: "Hoopers",
       medium: "Series",
       category: "Drama",
+      genre_ids: [18],
       release_date: "2021-11-24",
       watchedOn: null,
       isFavorite: true
@@ -110,6 +114,7 @@ export class MockXHRBackend implements HttpBackend {
       original_name: "Happy Joe: Cheery Road",
       medium: "Movies",
       category: "Action",
+      genre_ids: [18],
       release_date: "2020-11-13",
       watchedOn: 1457166565384,
       isFavorite: false
