@@ -33,7 +33,8 @@ export class MediaItemService {
               category: "mock",
               release_date: "1901-02-16",
               watchedOn: null,
-              isFavorite: true
+              isFavorite: true,
+              poster_path: null
             }
             element.mediaItem.id = element.id;
             element.mediaItem.original_name = element.original_name;
@@ -41,6 +42,7 @@ export class MediaItemService {
             element.mediaItem.release_date = element.release_date;
             element.mediaItem.watchedOn = element.watchedOn;
             element.mediaItem.isFavorite = element.isFavorite;
+            element.mediaItem.poster_path = 'https://image.tmdb.org/t/p/original' + element.poster_path;
             element.mediaItem.category = theCatagory;
             arrayOfMediaItems.push(element.mediaItem)
           });
@@ -146,6 +148,7 @@ interface MediaItem {
   release_date: string;
   watchedOn: number;
   isFavorite: boolean;
+  poster_path: string
 }
 
 interface MediaItemRaw {
@@ -157,5 +160,6 @@ interface MediaItemRaw {
   release_date: string;
   watchedOn: number;
   isFavorite: boolean;
+  poster_path: string
   mediaItem: MediaItem;
 }
